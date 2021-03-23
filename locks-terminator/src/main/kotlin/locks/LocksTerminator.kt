@@ -1,15 +1,15 @@
 package locks
 
+import org.springframework.beans.factory.annotation.Autowired
+import org.springframework.stereotype.Component
 import server.Server
 
+@Component
 class LocksTerminator {
 
-    val server = Server()
+    @Autowired
+    lateinit var server: Server
 
-    fun getMessage() = server.getMessage()
+    fun getMessage() = "${server.getMessage()} via locks"
 
-}
-
-fun main() {
-    println(LocksTerminator().getMessage())
 }
